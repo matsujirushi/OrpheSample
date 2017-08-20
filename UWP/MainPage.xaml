@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="OrpheTestApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OrpheTestApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded" Height="409" Width="846">
+
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="80"/>
+        </Style>
+        <Style TargetType="ListView">
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <ListView x:Name="lstDeviceIdList" ItemsSource="{x:Bind _DeviceIdList, Mode=OneWay}"/>
+            <Button x:Name="btnConnect" Grid.Column="1" Content="Connect" Click="btnConnect_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Scene:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1" x:Name="txtScene" Width="40" Height="10" HorizontalAlignment="Left" Text="2"/>
+                <Button Grid.Column="2" x:Name="btnScene" Content="Scene" Click="btnScene_Click" IsEnabled="False"/>
+
+                <TextBlock Text="Light:" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtLightNum" Width="40" Height="10" HorizontalAlignment="Left" Text="1"/>
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                    <Button x:Name="btnLightTrigger" Content="Trigger" Click="btnLightTrigger_Click" IsEnabled="False"/>
+                    <Button x:Name="btnLightOn" Content="Switch ON" Click="btnLightOn_Click" IsEnabled="False"/>
+                    <Button x:Name="btnLightOff" Content="Switch OFF" Click="btnLightOff_Click" IsEnabled="False"/>
+                </StackPanel>
+
+            </Grid>
+
+
+        </Grid>
+    </Grid>
+</Page>
